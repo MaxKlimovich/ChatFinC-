@@ -1,0 +1,17 @@
+<Project>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+
+		<Nullable>Enable</Nullable>
+		
+			<Platforms>x64</Platforms>
+		
+		<Version>0.1.0</Version>
+
+		<LangVersion>Latest</LangVersion>
+
+		<Company>Chat</Company>
+		<Product>Chat</Product>
+		<Authors>GenryBronx</Authors>
+	</PropertyGroup>
+</Project>
