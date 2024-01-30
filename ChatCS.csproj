@@ -1,0 +1,139 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <InvariantGlobalization>true</InvariantGlobalization>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Autofac" Version="8.0.0" />
+        <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="9.0.0" />
+        <PackageReference Include="AutoMapper" Version="12.0.1" />
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+        <PackageReference Include="Avalonia" Version="11.0.7" />
+        <PackageReference Include="Avalonia.BuildServices" Version="0.0.30" />
+        <PackageReference Include="Avalonia.Remote.Protocol" Version="11.0.7" />
+        <PackageReference Include="Blazored.LocalStorage" Version="4.4.0" />
+        <PackageReference Include="ChatRoomSeptIntegration" Version="1.2.1" />
+        <PackageReference Include="Chill.AutofacFakeItEasy" Version="3.2.0" />
+        <PackageReference Include="Egorozh.Razor.Layout" Version="5.0.4" />
+        <PackageReference Include="Foundation.Web" Version="0.33.0" />
+        <PackageReference Include="Foundation5.Core" Version="5.5.0" />
+        <PackageReference Include="FoundationDB.Client" Version="7.2.0-preview1" />
+        <PackageReference Include="Google.Api.CommonProtos" Version="2.13.0" />
+        <PackageReference Include="Grpc.AspNetCore.Web" Version="2.60.0" />
+        <PackageReference Include="Grpc.Core" Version="2.46.6" />
+        <PackageReference Include="Grpc.Core.Api" Version="2.60.0" />
+        <PackageReference Include="Grpc.Net.Client" Version="2.60.0" />
+        <PackageReference Include="Grpc.Net.Client.Web" Version="2.60.0" />
+        <PackageReference Include="Grpc.Net.ClientFactory" Version="2.60.0" />
+        <PackageReference Include="Grpc.Net.Common" Version="2.60.0" />
+        <PackageReference Include="JwtSecurityTokenCustom" Version="1.0.0.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="8.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+        <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Hosting.WindowsServices" Version="8.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="8.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="8.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="8.0.0" />
+        <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.3.0" />
+        <PackageReference Include="Microsoft.JSInterop.WebAssembly" Version="8.0.1" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.6" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+        <PackageReference Include="Protos" Version="1.1.0" />
+        <PackageReference Include="Radzen.Blazor" Version="4.24.4" />
+        <PackageReference Include="Suluding.ApiAuthorize.Api" Version="1.1.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+        <PackageReference Include="System.Buffers" Version="4.5.1" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.3.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="src\Frontend\Mobile\Chilite.Mobile.iOS\Assets.xcassets\AppIcon.appiconset\Contents.json" />
+      <_ContentIncludedByDefault Remove="src\Frontend\Web\Chilite.Web\Properties\launchSettings.json" />
+      <_ContentIncludedByDefault Remove="src\Frontend\Web\Chilite.Web\wwwroot\sample-data\weather.json" />
+      <_ContentIncludedByDefault Remove="src\Frontend\Web\Chilite.Web\App.razor" />
+      <_ContentIncludedByDefault Remove="src\Frontend\Web\Chilite.Web\Components\ChatMessagesView.razor" />
+      <_ContentIncludedByDefault Remove="src\Frontend\Web\Chilite.Web\Components\CultureSelector.razor" />
+      <_ContentIncludedByDefault Remove="src\Frontend\Web\Chilite.Web\Layouts\LoginLayout.razor" />
+      <_ContentIncludedByDefault Remove="src\Frontend\Web\Chilite.Web\Layouts\MainLayout.razor" />
+      <_ContentIncludedByDefault Remove="src\Frontend\Web\Chilite.Web\Pages\Chat.razor" />
+      <_ContentIncludedByDefault Remove="src\Frontend\Web\Chilite.Web\Pages\LoginPage.razor" />
+      <_ContentIncludedByDefault Remove="src\Frontend\Web\Chilite.Web\Pages\RegisterPage.razor" />
+      <_ContentIncludedByDefault Remove="src\Frontend\Web\Chilite.Web\_Imports.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="src\Frontend\Desktop\Chilite.Desktop\App.axaml" />
+      <UpToDateCheckInput Remove="src\Frontend\Desktop\Chilite.Desktop\Pages\ChatPage.axaml" />
+      <UpToDateCheckInput Remove="src\Frontend\Desktop\Chilite.Desktop\Pages\LoginPage.axaml" />
+      <UpToDateCheckInput Remove="src\Frontend\Desktop\Chilite.Desktop\Windows\MainWindow.axaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Frontend\Desktop\Chilite.Desktop\App.axaml" />
+      <AdditionalFiles Include="Frontend\Desktop\Chilite.Desktop\Pages\ChatPage.axaml" />
+      <AdditionalFiles Include="Frontend\Desktop\Chilite.Desktop\Pages\LoginPage.axaml" />
+      <AdditionalFiles Include="Frontend\Desktop\Chilite.Desktop\Windows\MainWindow.axaml" />
+      <AdditionalFiles Include="Frontend\Mobile\Chilite.Mobile\App.xaml" />
+      <AdditionalFiles Include="Frontend\Mobile\Chilite.Mobile\AppShell.xaml" />
+      <AdditionalFiles Include="Frontend\Mobile\Chilite.Mobile\Views\AboutPage.xaml" />
+      <AdditionalFiles Include="Frontend\Mobile\Chilite.Mobile\Views\ChatPage.xaml" />
+      <AdditionalFiles Include="Frontend\Mobile\Chilite.Mobile\Views\ItemDetailPage.xaml" />
+      <AdditionalFiles Include="Frontend\Mobile\Chilite.Mobile\Views\ItemsPage.xaml" />
+      <AdditionalFiles Include="Frontend\Mobile\Chilite.Mobile\Views\LoginPage.xaml" />
+      <AdditionalFiles Include="Frontend\Mobile\Chilite.Mobile\Views\NewItemPage.xaml" />
+      <AdditionalFiles Include="Frontend\Mobile\maui\Chilite.MobileClient\App.xaml" />
+      <AdditionalFiles Include="Frontend\Mobile\maui\Chilite.MobileClient\AppShell.xaml" />
+      <AdditionalFiles Include="Frontend\Mobile\maui\Chilite.MobileClient\Chat\Views\ChatPage.xaml" />
+      <AdditionalFiles Include="Frontend\Mobile\maui\Chilite.MobileClient\Login\Views\LoginPage.xaml" />
+      <AdditionalFiles Include="Frontend\Web\Chilite.Web\App.razor" />
+      <AdditionalFiles Include="Frontend\Web\Chilite.Web\Components\ChatMessagesView.razor" />
+      <AdditionalFiles Include="Frontend\Web\Chilite.Web\Components\CultureSelector.razor" />
+      <AdditionalFiles Include="Frontend\Web\Chilite.Web\Layouts\LoginLayout.razor" />
+      <AdditionalFiles Include="Frontend\Web\Chilite.Web\Layouts\MainLayout.razor" />
+      <AdditionalFiles Include="Frontend\Web\Chilite.Web\Pages\Chat.razor" />
+      <AdditionalFiles Include="Frontend\Web\Chilite.Web\Pages\LoginPage.razor" />
+      <AdditionalFiles Include="Frontend\Web\Chilite.Web\Pages\RegisterPage.razor" />
+      <AdditionalFiles Include="Frontend\Web\Chilite.Web\wwwroot\css\app.css" />
+      <AdditionalFiles Include="Frontend\Web\Chilite.Web\wwwroot\css\bootstrap\bootstrap.min.css" />
+      <AdditionalFiles Include="Frontend\Web\Chilite.Web\wwwroot\css\open-iconic\font\css\open-iconic-bootstrap.min.css" />
+      <AdditionalFiles Include="Frontend\Web\Chilite.Web\_Imports.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Properties\launchSettings.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Backend\Chilite.Backend\Chile.Backend.csproj" />
+      <Content Include="Backend\Chilite.Database\Chilite.Database.csproj" />
+      <Content Include="Backend\Chilite.DomainModels\Chilite.DomainModels.csproj" />
+      <Content Include="Backend\Chilite.Domain\Chilite.DomainModels.csproj" />
+      <Content Include="Chilite.sln" />
+      <Content Include="Shared\Chilite.Protos\Chilite.Protos.jsproj" />
+    </ItemGroup>
+
+</Project>
