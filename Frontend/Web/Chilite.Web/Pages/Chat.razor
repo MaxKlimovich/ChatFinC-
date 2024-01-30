@@ -1,0 +1,97 @@
+﻿@page "/"
+@using Chilite.Protos
+@using Grpc.Core
+@using System.Threading
+@using Blazored.LocalStorage
+
+@inject NavigationManager NavigationManager
+
+@inject IStringLocalizer<Chat> ChatLoc
+
+@inject ILocalStorageService _storage;
+
+@inject ChatRoom.ChatRoomClient _chatRoomClient;
+
+<div style="height: 80vh; width: 50vw;">
+
+    <Grid RowDefinitions="* auto">
+        
+        <GridChild Row="1"
+                   VerticalAlignment="VerticalAlignment.Bottom"
+                   style="overflow-y: auto; max-height: 100%">
+            @foreach (var message in _messages)
+            {
+                <h2>@message</h2>
+            }
+        </GridChild>
+
+        <GridChild Row="2">
+            <RadzenTextArea Placeholder="@ChatLoc["TextAreaPlaceholder"]"
+                            @bind-Value="_message"
+                            Style="margin-bottom: 20px; width: 100%"/>
+            <RadzenButton Click="SendMessageAsync"
+                          Text="@ChatLoc["SendButtonText"]"/>
+        </GridChild>
+
+
+    </Grid>
+
+
+</div>
+
+@code
+{
+    private readonly List<string> _messages = new ();
+    
+    private string _message;
+
+    private readonly CancellationTokenSource _cancelTokenSource = new ();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        NavigationManager.LocationChanged += NavigationManagerOnLocationChanged;
+        
+        var serverStream = _chatRoomClient.JoinChat(new ChatRequest(), cancellationToken: _cancelTokenSource.Token);
+        var stream = serverStream.ResponseStream;
+
+        try
+        {
+            await foreach (var message in stream.ReadAllAsync(_cancelTokenSource.Token))
+            {
+                _messages.Add(message.Message);
+                this.StateHasChanged();
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        finally
+        {
+            serverStream.Dispose();
+        }
+    }
+
+    private void NavigationManagerOnLocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        Dispose();
+    }
+
+    public void Dispose()
+    {
+        _cancelTokenSource.Cancel();
+    }
+
+    private async Task SendMessageAsync()
+    {
+        if (string.IsNullOrEmpty(_message))
+            return;
+
+        await   _chatRoomClient.SendAsync(new ChatMessage
+        {
+            Message = _message
+        });
+
+        _message = "";
+    }
+}

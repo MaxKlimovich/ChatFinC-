@@ -1,0 +1,27 @@
+﻿@page "/login"
+@using global::Chilite.Web
+
+@layout LoginLayout
+
+@inject AuthorizeApi _authorizeApi
+@inject NavigationManager _navManager
+
+<RadzenLogin Login="@OnLogin"
+             Register="@OnRegister"/>
+
+@code {
+
+    private async Task OnLogin(LoginArgs arg)
+    {
+        var login = arg.Username;
+        var password = arg.Password;
+
+        var success = await _authorizeApi.Login(login, password);
+
+        if (success)
+            _navManager.NavigateTo("/");
+    }
+
+    private void OnRegister() => _navManager.NavigateTo("/register");
+
+}

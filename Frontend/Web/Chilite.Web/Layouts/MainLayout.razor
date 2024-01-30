@@ -1,0 +1,66 @@
+﻿@using System.Security.Claims
+@using global::Chilite.Web
+@inherits LayoutComponentBase
+
+@inject NavigationManager _nav
+@inject IStringLocalizer<MainLayout> _loc
+@inject AuthenticationStateProvider _authenticationStateProvider
+
+<AuthorizeView>
+    <Grid RowDefinitions="* auto *"
+          ColumnDefinitions="* auto *"
+          Width="100vw"
+          Height="100vh">
+
+        <GridChild Row="1"
+                   Column="1">
+            <CultureSelector/>
+        </GridChild>
+
+        <GridChild Row="1"
+                   Column="2">
+            <div>
+                Hello @_user?.Identity?.Name
+            </div>
+        </GridChild>
+
+        <GridChild Row="1"
+                   Column="3">
+            <RadzenButton Text="@_loc["Logout"]"
+                          Click="OnLogout"/>
+        </GridChild>
+
+        <GridChild Column="2"
+                   Row="2">
+            @Body
+        </GridChild>
+    </Grid>
+</AuthorizeView>
+
+@code
+{
+    private ClaimsPrincipal? _user;
+
+    [CascadingParameter]
+    public Task<AuthenticationState>? AuthenticationState { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (AuthenticationState != null)
+        {
+            var state = await AuthenticationState;
+
+            _user = state.User;
+
+            if (_user.Identity is {IsAuthenticated: false })
+            {
+                _nav.NavigateTo("login");
+            }
+        }
+    }
+
+    private async Task OnLogout()
+    {
+        await ((IdentityAuthenticationStateProvider) _authenticationStateProvider).MarkLogouted();
+    }
+}
